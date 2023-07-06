@@ -1,0 +1,121 @@
+<template>
+  <div class="hello">
+    <h1>{{msg}}</h1>
+    <p>{{myName}}</p>
+    <h1 v-bind:class="classes">hello</h1>
+    <a v-bind:href="googlewebsite">google</a> <br>
+    <input type="text" v-bind:value="name"><br>
+     <p>{{salary}}</p>
+    <button v-on:click="salary++"> click to +1</button><br>
+    <button v-on:click="salary--"> click to -1</button><br>
+    <button v-on:click="schangeSalary(10)"> changeSalary</button><br>
+
+    <button v-on:click="say('hi')">Say Hi</button>
+    <button v-on:click="say('what')">Say What</button> <br>
+    <br><br><br>
+
+<button @click.shift="messageClick()"> shift key </button>
+
+    <br><br><br>
+    
+    <div v-for="item in items">
+      {{item.text}}
+    </div>
+    <br><br><br>
+
+    <h2>{{title}}</h2>
+    <input type="text" v-model="title">
+
+    <input type="checkbox" id="check" v-model="checked">
+    <label for="check">{{checked}}</label>
+    <br><br><br>
+    <h1 v-if="type"> muhamed True </h1>
+    
+    <button v-on:click="changeType()">Show or Hide</button>
+    <br><br><br>
+    <div v-if="type1 === 'A'">
+  A
+</div>
+<div v-else-if="type1 === 'B'">
+  B
+</div>
+<div v-else-if="type1 === 'C'">
+  C
+</div>
+<div v-else>
+  Not A/B/C
+</div>
+<br><br><br>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  //data(){
+    //return{
+    //word:'Raoof Naser'}
+  //},
+  //method:{
+    //myName(){
+      //return'Raoof naser'
+    //}
+  //}
+   data(){
+    return{
+      classes:['blue', 'underline'],
+      googlewebsite:'https://www.google.com',
+      name:'Raoof Naser',
+      salary:'3000',
+      title:'first',
+      type:true,
+      type1:'A',
+      items:['ahmed','samy','ramy']
+}
+},
+ methods:{
+   changeSalary(increase){
+        this.salary += increase
+     },
+    say(msg) {
+      alert(msg)
+    },
+   messageClick(){
+   alert('hello world')
+},
+changeType(){
+this.type=!this.type
+
+}
+
+ 
+}
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.blue{
+  color: blue;
+}
+.underline{ 
+  text-decoration: underline;
+}
+</style>
